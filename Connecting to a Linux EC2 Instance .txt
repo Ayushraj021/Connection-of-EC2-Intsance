@@ -1,0 +1,27 @@
+Connecting to a Linux EC2 Instance using SSH:
+Get the Public DNS or IP Address of your EC2 instance:
+
+Log in to your AWS Management Console.
+Go to the EC2 dashboard.
+Click on "Instances" to view a list of your instances.
+Find the instance you want to connect to and note down its Public DNS or IP Address.
+Set up SSH:
+
+Ensure that your security group allows SSH access on port 22.
+Locate the private key file (.pem) that you used when launching the EC2 instance. If you don’t have it, you might need to create a new key pair.
+SSH Connection:
+
+Open a terminal window or command prompt.
+
+Use the following command to connect to your instance:
+
+bash
+Copy code
+ssh -i /path/to/your-key.pem ec2-user@your-instance-public-dns-or-ip
+Replace /path/to/your-key.pem with the path to your private key file, ec2-user with the appropriate username (might differ based on the Linux distribution), and your-instance-public-dns-or-ip with your EC2 instance's Public DNS or IP Address.
+
+(Optional): If your key file's permissions are too open (e.g., accessible to everyone), SSH might reject it. You can adjust the permissions using:
+
+bash
+Copy code
+chmod 400 /path/to/your-key.pem
